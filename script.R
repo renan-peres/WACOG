@@ -12,7 +12,7 @@ graphics.off()
 ggplot2::theme_set(new = cowplot::theme_cowplot())
 # 1_IMPORT ---------------------------------------------------------------------
 
-df_raw <- read_csv("raw_data.csv")
+df_raw <- read_csv("data/data.csv")
 
 # 2_CLEAN ----------------------------------------------------------------------
 
