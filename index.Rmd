@@ -5,7 +5,6 @@ output:
     theme: spacelab
     orientation: columns
     vertical_layout: fill
-    social: menu
     source_code: embed
 ---
 
@@ -15,9 +14,7 @@ library(flexdashboard)
 library(tidyverse)
 library(scales)
 load("data/data.Rdata")
-# Install thematic and un-comment for themed static plots (i.e., ggplot2)
-# thematic::thematic_rmd()
-
+# This project is stored in https://github.com/renan-peres/WACOG
 ```
 
 # Visuals
@@ -58,7 +55,6 @@ valueBox(price, icon = "ion-cash",color = "#21a366")
 inventory_value <- df %>% summarise(scales::dollar(last(ending_inventory_market_value)))
 valueBox(inventory_value, icon = "ion-soup-can",color = "#21a366")
 ```
-
 
 # Data
 
