@@ -21,7 +21,7 @@ ggplot2::theme_set(new = cowplot::theme_cowplot())
 # This project is stored in https://github.com/renan-peres/WACOG
 ```
 
-# Visuals
+# Visualizations
 
 -----------------------------------------------------------------------
 
