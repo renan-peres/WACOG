@@ -5,6 +5,7 @@ library(DT)
 library(reactable)
 library(htmltools)
 library(fontawesome)
+library(scales)
 
 rm(list = ls())
 graphics.off()
@@ -81,11 +82,11 @@ plot_wacog <- df %>%
     htmltools::browsable(
       tagList(tags$button(
         tagList(fontawesome::fa("download"), "Download as CSV"),
-        onclick = "Reactable.downloadDataCSV('data-download-table', 'data.csv')"),
+        onclick = "Reactable.downloadDataCSV('data-download-table', '06-2022_wacog.csv')"),
         
   # Reactable
     reactable::reactable(dt,
-                         defaultPageSize = 10,
+                         defaultPageSize = 15,
                          striped = T,
                          bordered = T,
                          compact = T,
@@ -119,9 +120,7 @@ plot_wacog <- df %>%
                                                                           "Ending Inventory Market Value"), sticky = "left")))))
                                         
 
-
-
-
+save(list = ls(), file = "data/data.Rdata")
 
 
 
