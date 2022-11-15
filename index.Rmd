@@ -3,7 +3,7 @@ title: "WACOG Project"
 output: 
   flexdashboard::flex_dashboard:
     theme: spacelab
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
     source_code: embed
 ---
@@ -13,13 +13,19 @@ library(reactable)
 library(flexdashboard)
 library(tidyverse)
 library(scales)
+library(cowplot)
+
 load("data/data.Rdata")
+
+ggplot2::theme_set(new = cowplot::theme_cowplot())
 # This project is stored in https://github.com/renan-peres/WACOG
 ```
 
 # Visuals
 
 -----------------------------------------------------------------------
+
+## Column {data-width=500}
 
 ### Inventory (in dth)
 
@@ -28,11 +34,18 @@ inventory <- df %>% summarise(scales::number(last(ending_inventory)))
 valueBox(inventory, icon = "ion-soup-can",color = "#68b6fc")
 ```
 
-### WACOG
+### WACOG (Last)
 
 ```{r}
 wacog <- df %>% summarise(scales::dollar(last(wacog)))
 valueBox(wacog, icon = "ion-ios-calculator",color = "#fdc52e")
+```
+
+### Market Price (Last)
+
+```{r}
+price <- df %>% summarise(scales::dollar(last(market_price)))
+valueBox(price, icon = "ion-cash",color = "#fdc52e")
 ```
 
 ### Inventory Cost
@@ -42,13 +55,6 @@ cost <- df %>% summarise(scales::dollar(last(ending_inventory_cost)))
 valueBox(cost, icon = "ion-soup-can",color = "#fdc52e")
 ```
 
-### Market Price (last)
-
-```{r}
-price <- df %>% summarise(scales::dollar(last(market_price)))
-valueBox(price, icon = "ion-cash",color = "#21a366")
-```
-
 ### Inventory Market Value
 
 ```{r}
@@ -56,14 +62,29 @@ inventory_value <- df %>% summarise(scales::dollar(last(ending_inventory_market_
 valueBox(inventory_value, icon = "ion-soup-can",color = "#21a366")
 ```
 
+## Column {data-width=500}
+
+### Inventory 
+
+```{r}
+plot_inventory
+```
+
+### WACOG
+
+```{r}
+plot_wacog
+```
+
+
 # Data
 
 -----------------------------------------------------------------------
 
 ## Column {data-width=1000}
 
+### Data
+
 ```{r}
 reactable
 ```
-
-

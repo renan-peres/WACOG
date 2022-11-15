@@ -32,8 +32,8 @@ plot_inventory <- df %>%
                          y = "Inventory", 
                          title = "Gas Inventory (in dth)", 
                          subtitle = "June 2022") +
-  theme(plot.title = element_text(size = 20,hjust = .5),
-        plot.subtitle = element_text(size = 16, hjust = .5))
+  theme(plot.title = element_text(size = 16,hjust = .5),
+        plot.subtitle = element_text(size = 12, hjust = .5))
   
 
 plot_wacog <- df %>% 
@@ -43,11 +43,11 @@ plot_wacog <- df %>%
                 scale_y_continuous(breaks = seq(0.5, 9)) +
                 scale_x_date(date_breaks = "7 days", date_labels = "%d-%b") +
                 labs(x = "", 
-                     y = "Inventory", 
+                     y = "", 
                      title = "WACOG", 
                      subtitle = "June 2022") +
-                theme(plot.title = element_text(size = 20,hjust = .5),
-                      plot.subtitle = element_text(size = 16, hjust = .5))
+                theme(plot.title = element_text(size = 16,hjust = .5),
+                      plot.subtitle = element_text(size = 12, hjust = .5))
 
 # 4_DATA_TABLE -----------------------------------------------------------------
 
